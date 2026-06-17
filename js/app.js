@@ -45,6 +45,12 @@ function getScoreBadgeClass(score, max) {
     return 'low';
 }
 
+// Get max score for dimension
+function getMaxScore(dim) {
+    const maxScores = { D1: 10, D2: 5, D3: 10, D4: 25, D5: 20, D6: 15, D7: 10, D8: 5 };
+    return maxScores[dim] || 10;
+}
+
 // Render reports list
 function renderReports() {
     const list = document.getElementById('reportList');
@@ -75,57 +81,31 @@ function renderReports() {
 
     list.innerHTML = filteredReports.map(report => `
         <div class="report-card ${getGradeClass(report.grade)}" onclick="window.location.href='report.html?id=${report.id}'">
-            <div class="report-header">
-                <span class="report-id">#${report.id}${report.note ? ' (' + report.note + ')' : ''}</span>
-                <span class="report-score ${getScoreClass(report.score)}">${report.score}</span>
-            </div>
-            <div class="report-info">
-                <div class="report-info-item">
-                    <span class="report-info-label">供应商</span>
-                    <span class="report-info-value">${report.supplier}</span>
+            <div class="report-id-badge">#${report.id}</div>
+            <div class="report-main">
+                <div class="report-main-item">
+                    <span class="report-main-label">供应商</span>
+                    <span class="report-main-value">${report.supplier}</span>
                 </div>
-                <div class="report-info-item">
-                    <span class="report-info-label">产品</span>
-                    <span class="report-info-value">${report.product}</span>
+                <div class="report-main-item">
+                    <span class="report-main-label">产品</span>
+                    <span class="report-main-value">${report.product}</span>
                 </div>
-                <div class="report-info-item">
-                    <span class="report-info-label">问题</span>
-                    <span class="report-info-value">${report.issue}</span>
+                <div class="report-main-item">
+                    <span class="report-main-label">问题</span>
+                    <span class="report-main-value">${report.issue}</span>
                 </div>
-                <div class="report-info-item">
-                    <span class="report-info-label">等级</span>
-                    <span class="report-info-value">${report.grade}</span>
+                <div class="report-main-item">
+                    <span class="report-main-label">等级</span>
+                    <span class="report-main-value"><span class="tag ${getGradeClass(report.grade)}">${report.grade}</span></span>
                 </div>
             </div>
-            ${report.highlights && report.highlights.length > 0 ? `
-            <div class="report-highlights">
-                <h4>✅ 核心亮点</h4>
-                <ul>
-                    ${report.highlights.map(h => `<li>${h}</li>`).join('')}
-                </ul>
-            </div>
-            ` : ''}
-            ${report.shortcomings && report.shortcomings.length > 0 ? `
-            <div class="report-shortcomings">
-                <h4>❌ 核心短板</h4>
-                <ul>
-                    ${report.shortcomings.map(s => `<li>${s}</li>`).join('')}
-                </ul>
-            </div>
-            ` : ''}
-            <div class="scores-bar">
-                ${Object.entries(report.scores).map(([key, value]) => `
-                    <span class="score-badge ${getScoreBadgeClass(value, getMaxScore(key))}">${key}: ${value}/${getMaxScore(key)}</span>
-                `).join('')}
+            <div class="report-score-badge">
+                <div class="report-score ${getScoreClass(report.score)}">${report.score}</div>
+                <div class="report-grade">/100</div>
             </div>
         </div>
     `).join('');
-}
-
-// Get max score for dimension
-function getMaxScore(dim) {
-    const maxScores = { D1: 10, D2: 5, D3: 10, D4: 25, D5: 20, D6: 15, D7: 10, D8: 5 };
-    return maxScores[dim] || 10;
 }
 
 // Filter reports

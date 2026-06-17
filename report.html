@@ -7,27 +7,85 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
             <a href="index.html" class="back-link">← 返回报告列表</a>
             <h1 id="reportTitle">8D报告详情</h1>
-        </header>
-
-        <div id="reportContent">
-            <!-- Report content will be rendered here -->
+            <p class="subtitle" id="reportSubtitle"></p>
         </div>
+    </header>
 
-        <div class="comparison-section">
-            <h2>📊 同类报告对比</h2>
-            <div id="comparisonList" class="report-list">
-                <!-- Comparison reports will be rendered here -->
+    <div class="container">
+        <div class="detail-grid">
+            <div class="detail-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-score">
+                        <div class="score" id="sidebarScore">--</div>
+                        <div class="grade" id="sidebarGrade">--</div>
+                    </div>
+                    <div class="sidebar-info">
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">供应商</span>
+                            <span class="sidebar-info-value" id="sidebarSupplier">--</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">产品</span>
+                            <span class="sidebar-info-value" id="sidebarProduct">--</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">问题</span>
+                            <span class="sidebar-info-value" id="sidebarIssue">--</span>
+                        </div>
+                        <div class="sidebar-info-item">
+                            <span class="sidebar-info-label">编号</span>
+                            <span class="sidebar-info-value" id="sidebarId">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>D1-D8 评分</h3>
+                    <div id="sidebarScores">
+                        <!-- Score bars will be rendered here -->
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="suggestions-section">
-            <h2>💡 改进建议</h2>
-            <div id="suggestionsContent" class="suggestions-content">
-                <!-- Suggestions will be rendered here -->
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h2>📋 整体评价</h2>
+                    <div id="overallEvaluation">
+                        <!-- Overall evaluation will be rendered here -->
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h2>🔍 逐维批改</h2>
+                    <div id="dimensionDetails">
+                        <!-- Dimension details will be rendered here -->
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h2>📚 学习指导</h2>
+                    <div id="learningGuide">
+                        <!-- Learning guide will be rendered here -->
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h2>📊 同类报告对比</h2>
+                    <div id="comparisonList" class="report-list">
+                        <!-- Comparison reports will be rendered here -->
+                    </div>
+                </div>
+
+                <div class="suggestions-section">
+                    <h2>💡 改进建议</h2>
+                    <div id="suggestionsContent" class="suggestions-content">
+                        <!-- Suggestions will be rendered here -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
