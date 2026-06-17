@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8D报告智能批改系统 - 华住运营品类质量铁训营</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 8D报告智能批改系统</h1>
+            <p class="subtitle">华住运营品类质量铁训营 | 118份报告</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">118</span>
+                <span class="stat-label">总报告数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" style="color: #10b981;">27</span>
+                <span class="stat-label">合格(≥70)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" style="color: #f59e0b;">8</span>
+                <span class="stat-label">良好(80-89)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" style="color: #8b5cf6;">3</span>
+                <span class="stat-label">优秀(≥90)</span>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索企业名称、产品、问题..." autocomplete="off">
+                <button id="searchBtn" class="btn btn-primary">🔍 搜索</button>
+            </div>
+            <div class="filter-tags">
+                <button class="filter-tag active" data-filter="all">全部</button>
+                <button class="filter-tag" data-filter="优秀">⭐ 优秀</button>
+                <button class="filter-tag" data-filter="良好">🌟 良好</button>
+                <button class="filter-tag" data-filter="合格">✅ 合格</button>
+                <button class="filter-tag" data-filter="不合格">❌ 不合格</button>
+            </div>
+        </div>
+
+        <div class="results-info">
+            <span id="resultsCount">共 118 份报告</span>
+            <div class="sort-options">
+                <label>排序：</label>
+                <select id="sortSelect">
+                    <option value="id-asc">编号 ↑</option>
+                    <option value="id-desc">编号 ↓</option>
+                    <option value="score-desc">分数 ↓</option>
+                    <option value="score-asc">分数 ↑</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="reportList" class="report-list">
+            <!-- Reports will be rendered here -->
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>😔 没有找到匹配的报告</p>
+            <p class="hint">请尝试其他搜索关键词</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
