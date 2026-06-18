@@ -267,7 +267,7 @@ function renderReport() {
                     
                     ${detail.original ? `
                     <div style="margin-bottom: 12px; padding: 10px; background: #f9fafb; border-radius: 6px; font-size: 0.85em;">
-                        <p style="color: #6b7280; margin-bottom: 4px; font-weight: 500;">📋 原始内容摘要</p>
+                        <p style="color: #6b7280; margin-bottom: 4px; font-weight: 500;">📋 原文</p>
                         <p style="color: #4b5563;">${detail.original}</p>
                     </div>
                     ` : ''}
